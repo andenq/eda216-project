@@ -60,7 +60,7 @@ class Database {
             $variables[] = $to_date;
         }
 
-        return $this->executeQuery($sql);
+        return $this->executeQuery($sql, $variables);
     }
 	
 	/** 
@@ -121,6 +121,7 @@ class Database {
 		return $result;
 	}
 	
+
 	/**
 	 * Execute a database update (insert/delete/update).
 	 *
