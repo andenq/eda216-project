@@ -29,6 +29,11 @@ class Database {
 		$this->password = $password;
 		$this->database = $database;
 	}
+
+    public function getPallets() {
+        $sql = "SELECT * FROM Pallets";
+        return $this->executeQuery($sql);
+    }
 	
 	/** 
 	 * Opens a connection to the database, using the earlier specified user

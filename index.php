@@ -2,9 +2,9 @@
 <?php
     require_once('init.php');
 
-    if ($con) {
-        $list = ["2016-03-30", "2016-03-29", "2016-03-29"];
-    }
+    // Fetch pallet data from database
+    // ...
+    $pallets = $db->getPallets();
 
 ?>
 
@@ -23,15 +23,17 @@
         <tbody>
             <?php
                 if ($con) {
-                    foreach ($list as $l) {
+                    foreach ($pallets as $pallet) {
                         print "<tr>";
-                        print "<td>$l</td>";
-                        print "<td>1234567890128</td>";
-                        print "<td>2016-03-30</td>";
+                        print "<td>$pallet[created_at]</td>";
+                        print "<td>$pallet[barcode_id]</td>";
+                        if ($pallet["blocked_at"] != null) {
+                            print '<td><a href="/blockPallet.php?id=' . $pallet["barcode_id"] . '" class="btn btn-danger">' .  $pallet["blocked_at"] . '</a></td>';
+                        } else {
+                            print '<td><a href="/blockPallet.php?id=' . $pallet["barcode_id"] . '" class="btn btn-info">Block</a></td>';
+                        }
                         print "</tr>";
                     }
-                } else {
-                    print "<tr><td></td></tr>";
                 }
              ?>
         </tbody>
