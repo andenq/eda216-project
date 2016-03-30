@@ -1,22 +1,12 @@
+<?php include('header.php'); ?> 
+
 <?php
-    require_once('database.inc.php');
-    require_once("mysql_connect_data.inc.php");
-
-    $db = new Database($host, $userName, $password, $database);
-    $db->openConnection();
-    if (!$db->isConnected()) {
-        $con = false;
-    } else {
-        $con = true;
-    }
-
     if ($con) {
         $list = ["2016-03-30", "2016-03-29", "2016-03-29"];
     }
 
 ?>
 
-<?php include('header.php'); ?> 
 <div class="container">
     <h2 class="page-header">Pallet data</h2>
     <a href="http://localhost/createPallet.php" class="btn btn-default">Create pallet</a>
