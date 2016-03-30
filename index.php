@@ -28,9 +28,9 @@
                         print "<td>$pallet[created_at]</td>";
                         print "<td>$pallet[barcode_id]</td>";
                         if ($pallet["blocked_at"] != null) {
-                            print '<td><a href="/blockPallet.php?id=' . $pallet["barcode_id"] . '" class="btn btn-danger">' .  $pallet["blocked_at"] . '</a></td>';
+                            print '<td><a href="/block_pallet.php?id=' . $pallet["barcode_id"] . '" class="btn btn-danger">' .  $pallet["blocked_at"] . '</a></td>';
                         } else {
-                            print '<td><a href="/blockPallet.php?id=' . $pallet["barcode_id"] . '" class="btn btn-info">Block</a></td>';
+                            print '<td><a href="/block_pallet.php?id=' . $pallet["barcode_id"] . '" class="btn btn-info">Block</a></td>';
                         }
                         print "</tr>";
                     }
