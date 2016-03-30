@@ -56,10 +56,10 @@ class Database {
 
         if (!empty($from_date) && !empty($to_date)) {
             if ($from_date == $to_date) {
-                $sql .= ' AND created_at = ?';
+                $sql .= ' AND DATE(created_at) = ?';
                 $variables[] = $from_date;
             } else { 
-                $sql .= ' AND created_at BETWEEN ? AND ?';
+                $sql .= ' AND DATE(created_at) BETWEEN ? AND ?';
                 $variables[] = $from_date;
                 $variables[] = $to_date;
             }
