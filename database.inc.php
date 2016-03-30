@@ -109,6 +109,12 @@ class Database {
 			die($error);
 		}
 	}
+
+    public function getPastries() {
+        $sql = "SELECT name FROM pastries";
+        $result = $this->executeQuery($sql);
+        return $result;
+    }
 	
 	/**
 	 * Check if a user with the specified user id exists in the database.
