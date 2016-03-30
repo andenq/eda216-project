@@ -55,9 +55,14 @@ class Database {
         }
 
         if (!empty($from_date) && !empty($to_date)) {
-            $sql .= ' AND created_at BETWEEN ? AND ?';
-            $variables[] = $from_date;
-            $variables[] = $to_date;
+            if ($from_date == $to_date) {
+                $sql .= ' AND created_at = ?';
+                $variables[] = $from_date;
+            } else { 
+                $sql .= ' AND created_at BETWEEN ? AND ?';
+                $variables[] = $from_date;
+                $variables[] = $to_date;
+            }
         }
 
         return $this->executeQuery($sql, $variables);
