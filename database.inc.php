@@ -117,7 +117,10 @@ class Database {
     }
 
     public function scanPallet($barcode_id, $pastry_name) {
-        $sql = "INSERT INTO Pallets(barcode_id, pastry_name) VALUES (?, ?)";
+        $sql = "INSERT INTO StockEvents (material_name, amount) SELECT material_name, amount FROM Ingredients WHERE pastry_name = ?";
+        $this->executeUpdate($sql, array($pastry_name));
+               
+        $sql = "INSERT INTO Pallets(barcode_id, pastry_name) VALUES (?, ?)";        
         $this->executeUpdate($sql, array($barcode_id, $pastry_name));
     }
 	
