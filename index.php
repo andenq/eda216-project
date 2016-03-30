@@ -17,10 +17,10 @@
 ?>
 
 <?php include('header.php'); ?> 
-<div style="margin: 10px;">
-    <h2>Pallet data</h2>
+<div class="container">
+    <h2 class="page-header">Pallet data</h2>
     <a href="http://localhost/createPallet.php" class="btn btn-default">Create pallet</a>
-    <table class="table" style="width: 50%;">
+    <table class="table pallet-table">
         <thead>
             <tr>
                 <th>Date created</th>
