@@ -1,7 +1,7 @@
 
 <?php
     require_once('init.php');
-    
+
     if ($con) {
         $list = ["2016-03-30", "2016-03-29", "2016-03-29"];
     }
@@ -11,7 +11,7 @@
 <?php include('header.php'); ?> 
 <div class="container">
     <h2 class="page-header">Pallet data</h2>
-    <a href="http://localhost/createPallet.php" class="btn btn-default">Create pallet</a>
+    <a href="pallet_create.php" class="btn btn-default">Create pallet</a>
     <table class="table pallet-table">
         <thead>
             <tr>
