@@ -39,6 +39,29 @@ class Database {
         $sql = "UPDATE Pallets SET blocked_at = IF(blocked_at IS NULL, NOW(), NULL) WHERE barcode_id = ?";
         $this->executeUpdate($sql, array($barcodeId));
     }
+
+    public function searchPallets($barcode_id, $pastry_name, $from_date, $to_date) {
+        $sql = "SELECT * FROM Pallets WHERE 1=1"; // Riktig fuling
+        $variables = array();
+
+        if (!empty($barcode_id)) {
+            $sql .= ' AND barcode_id = ?';
+            $variables[] = $barcode_id;
+        }
+
+        if (!empty($pastry_name)) {
+            $sql .= ' AND pastry_name = ?';
+            $variables[] = $pastry_name;
+        }
+
+        if (!empty($from_date) && !empty($to_date)) {
+            $sql .= ' AND created_at BETWEEN ? AND ?';
+            $variables[] = $from_date;
+            $variables[] = $to_date;
+        }
+
+        return $this->executeQuery($sql);
+    }
 	
 	/** 
 	 * Opens a connection to the database, using the earlier specified user
