@@ -1,3 +1,7 @@
 .pallet-table {
   width: 100%;
 }
+
+.flash.alert {
+    margin-top: 25px !important; /* Borde inte använda important */
+}

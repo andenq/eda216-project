@@ -15,3 +15,4 @@
         }
     ?>
         <div class="container">
+            <?php include('flash_messages.php'); ?>

@@ -101,19 +101,19 @@ class Database {
 	 * @return The number of affected rows
 	 */
 	private function executeUpdate($query, $params = array()) {
-		try {
-			$stmt = $this->conn->prepare($query);
-			$stmt->execute($params);
-		} catch (PDOException $e) {
-			$error = "*** Internal error: " . $e->getMessage() . "<p>" . $query;
-			die($error);
-		}
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute($params);
 	}
 
     public function getPastries() {
         $sql = "SELECT name FROM pastries";
         $result = $this->executeQuery($sql);
         return $result;
+    }
+
+    public function scanPallet($barcode_id, $pastry_name) {
+        $sql = "INSERT INTO Pallets(barcode_id, pastry_name) VALUES (?, ?)";
+        $this->executeUpdate($sql, array($barcode_id, $pastry_name));
     }
 	
 	/**

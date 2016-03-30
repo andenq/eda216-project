@@ -40,9 +40,11 @@ CREATE TABLE Ingredients (
 CREATE TABLE Pallets (
     id int NOT NULL AUTO_INCREMENT,
     barcode_id varchar(255) NOT NULL UNIQUE,
+    pastry_name varchar(255) NOT NULL,
     created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     blocked_at datetime,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    FOREIGN KEY (pastry_name) REFERENCES Pastries(name)
 );
 
 CREATE TABLE Customers (
@@ -77,12 +79,6 @@ CREATE TABLE OrderPastry (
     FOREIGN KEY (pastry_name) REFERENCES Pastries(name)
 );
 
-INSERT INTO Pallets(barcode_id, created_at, blocked_at) VALUES
-('1234567890128', '2016-03-30 13:37:00', null),
-('1345678910128', '2016-03-29 13:37:00', null),
-('1574357210128', '2016-03-28 13:37:00', '2016-03-30 13:37:00'),
-('1646753240128', '2016-03-28 13:37:00', null);
-
 INSERT INTO RawMaterials(name, unit) VALUES
 ('Butter', 'g'),
 ('Icing sugar', 'g'),
@@ -108,7 +104,6 @@ INSERT INTO Pastries(name) VALUES
 ('Nut ring'),
 ('Nut cookie'),
 ('Amneris'),
-('Eggs'),
 ('Tango'),
 ('Almond delight'),
 ('Berliner');
@@ -145,3 +140,10 @@ INSERT INTO Ingredients(pastry_name, material_name, amount) VALUES
 ('Berliner', 'Eggs', 50),
 ('Berliner', 'Vanilla sugar', 5),
 ('Berliner', 'Chocolate', 50);
+
+
+INSERT INTO Pallets(barcode_id, pastry_name, created_at, blocked_at) VALUES
+('1234567890128', 'Tango', '2016-03-30 13:37:00', null),
+('1345678910128', 'Tango', '2016-03-29 13:37:00', null),
+('1574357210128', 'Berliner', '2016-03-28 13:37:00', '2016-03-30 13:37:00'),
+('1646753240128', 'Berliner', '2016-03-28 13:37:00', null);
