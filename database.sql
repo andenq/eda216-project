@@ -40,7 +40,7 @@ CREATE TABLE Ingredients (
 CREATE TABLE Pallets (
     id int NOT NULL AUTO_INCREMENT,
     barcode_id varchar(255) NOT NULL UNIQUE,
-    created_at datetime NOT NULL,
+    created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     blocked_at datetime,
     PRIMARY KEY (id)
 );
@@ -76,3 +76,9 @@ CREATE TABLE OrderPastry (
     FOREIGN KEY (order_id) REFERENCES Orders(id),
     FOREIGN KEY (pastry_name) REFERENCES Pastries(name)
 );
+
+INSERT INTO Pallets(barcode_id, created_at, blocked_at) VALUES
+('1234567890128', '2016-03-30', null),
+('1345678910128', '2016-03-29', null),
+('1574357210128', '2016-03-28', '2016-03-30'),
+('1646753240128', '2016-03-28', null);
