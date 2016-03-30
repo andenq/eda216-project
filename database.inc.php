@@ -34,6 +34,11 @@ class Database {
         $sql = "SELECT * FROM Pallets";
         return $this->executeQuery($sql);
     }
+
+    public function toggleBlockedPallet($barcodeId) {
+        $sql = "UPDATE Pallets SET blocked_at = IF(blocked_at IS NULL, NOW(), NULL) WHERE barcode_id = ?";
+        $this->executeUpdate($sql, array($barcodeId));
+    }
 	
 	/** 
 	 * Opens a connection to the database, using the earlier specified user
