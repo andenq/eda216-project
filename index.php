@@ -10,8 +10,8 @@
 
 <?php include('header.php'); ?> 
 <h2 class="page-header">Pallet data</h2>
-<a href="pallet_create.php" class="btn btn-default">Create pallet</a>
-<a href="search_pallet.php" class="btn btn-default">Search pallet</a>
+<a href="pallet_create.php" class="btn btn-primary">Create pallet</a>
+<a href="search_pallet.php" class="btn btn-primary">Search pallet</a>
 <table class="table pallet-table">
     <thead>
         <tr>

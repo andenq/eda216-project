@@ -16,6 +16,7 @@
                 </select>
             </div>
             <input type="submit" class="btn btn-primary pull-right" value="Scan Pallet">
+            <a href="index.php" class="btn btn-primary pull-left">Go back</a>
         </form>
     </div>
 </div>
