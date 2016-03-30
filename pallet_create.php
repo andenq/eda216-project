@@ -4,7 +4,7 @@
 <h2 class="page-header">Create (scan) pallet</h2>
 <div class="row">
     <div class="col-xs-6">
-        <form method="post" action="paller_scan.php">
+        <form method="post" action="pallet_scan.php">
             <div class="form-group">
                 <label for="barcode_id">Barcode ID</label>
                 <input type="text" class="form-control" id="barcode_id" name="barcode_id" placeholder="Barcode ID">
